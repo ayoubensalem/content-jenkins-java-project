@@ -1,8 +1,8 @@
 pipeline {
-  agent slave
+  agent any
   stages {
     stage('build'){
-      steps {
+      steps
         sh "ant -f build.xml -v"
         echo "BUILD STAGE COMPLETED"
       }
