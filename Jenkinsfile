@@ -51,7 +51,7 @@
           label 'master'
         }
         when {
-          branch 'tags/mytag'
+          branch 'starter'
         }
         steps {
           sh "cp /var/ww/html/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar /var/www/html/rectangles/green/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
@@ -68,14 +68,14 @@
           echo "Stashing Any Local Changes"
           sh 'git stash'
           echo "Checking Out Development Branch"
-          sh 'git checkout development'
+          sh 'git checkout multi'
           echo 'Checking Out Master Branch'
           sh 'git pull origin'
-          sh 'git checkout master'
+          sh 'git checkout starter'
           echo 'Merging Development into Master Branch'
-          sh 'git merge development'
+          sh 'git merge multi'
           echo 'Pushing to Origin Master'
-          sh 'git push origin master'
+          sh 'git push origin starter'
           echo 'Tagging the Release'
           sh "git tag rectangle-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}"
           sh "git push origin rectangle-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}"
