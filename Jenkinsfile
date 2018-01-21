@@ -54,7 +54,7 @@
           branch 'tags/mytag'
         }
         steps {
-          sh "cp /var/www/html/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar /var/www/html/rectangles/green/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
+          sh "cp /var/ww/html/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar /var/www/html/rectangles/green/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
         }
       }
       stage('Promote Development Branch to Master') {
@@ -62,7 +62,7 @@
           label 'master'
         }
         when {
-          branch 'tags/multibranch'
+          branch 'multi'
         }
         steps {
           echo "Stashing Any Local Changes"
