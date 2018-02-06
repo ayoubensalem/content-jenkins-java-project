@@ -37,7 +37,7 @@ pipeline {
         label 'Slave'
       }
       steps {
-        sh "wget http://172.16.88.143/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
+        sh "wget http://192.168.56.3/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
         sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
       }
     }
