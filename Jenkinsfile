@@ -1,6 +1,8 @@
 pipeline {
   agent none
-
+  tools {
+    ant 'ant-1.7.0'
+  }
   stages {
     stage('Unit Tests') {
       agent {
